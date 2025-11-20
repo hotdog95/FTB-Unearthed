@@ -155,7 +155,7 @@ public class WorkerToken extends Item {
             level.addFreshEntity(villager);
             WorkerData workerData = getWorkerData(context.getItemInHand());
             // if we set villager xp to 0, worker data gets immediately reset by dumb villager brain
-            villager.setVillagerXp(Math.max(1, VillagerData.getMinXpPerLevel(workerData.getVillagerLevel())));
+            villager.setVillagerXp(Math.max(0, VillagerData.getMinXpPerLevel(workerData.getVillagerLevel()))); //You have a config to preserve villager level. Setting xp to 1 means you cannot cycle trades on an unleveled villager
             villager.setVillagerData(workerData.toVillagerData());
             level.playSound(null, villager.blockPosition(), SoundEvents.ENDER_PEARL_THROW, SoundSource.PLAYERS, 1f, 1f);
             Vec3 vec = villager.getPosition(1f).add(0, 0, 0);
